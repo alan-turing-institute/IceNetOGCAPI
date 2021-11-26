@@ -12,6 +12,8 @@ azure-mgmt-resource = "^19.0.0"
 azure-mgmt-storage = "^18.0.0"
 coloredlogs = "^15.0.1"
 pyhcl = "^0.4.4"
+chevron = "^0.14.0"
+PyYAML = "^6.0"
 
 [tool.poetry.dev-dependencies]
 
