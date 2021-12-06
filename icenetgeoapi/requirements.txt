@@ -1,0 +1,3 @@
+psycopg2==2.9.2
+pygeoapi==0.11.0
+pygeos==0.11.1
