@@ -42,8 +42,7 @@ resource "null_resource" "deploy_zip" {
   provisioner "local-exec" {
     command = <<EOF
     echo "Waiting for other deployments to finish..."
-    #sleep 300
-    sleep 3
+    sleep 150
     echo "Deploying app from $(pwd)"
     az webapp deployment source config-zip --resource-group ${azurerm_resource_group.app.name} --name ${azurerm_app_service.app.name} --src ${data.archive_file.deploy.output_path}
     echo "Removing ${data.archive_file.deploy.output_path}"

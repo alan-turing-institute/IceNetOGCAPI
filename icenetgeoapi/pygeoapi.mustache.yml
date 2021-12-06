@@ -2,7 +2,7 @@ server:
     bind:
         host: 0.0.0.0  # listening address for incoming connections
         port: {{port}}  # listening port for incoming connections
-    url: http://{{app_url}}:{{port}}/  # url of server
+    url: https://{{app_url}} # url of server
     mimetype: application/json; charset=UTF-8  # default MIME type
     encoding: utf-8  # default server encoding
     language: en-GB  # default server language
@@ -113,11 +113,12 @@ resources:
           user: {{postgres_reader_username}}@{{postgres_host}}
           password: {{{postgres_reader_password}}}
           sslmode: require
-        fields:
-          prediction_latest_id: int8
-          leadtime: int4
-          mean: float4
-          stddev: float4
+        properties:
+          - prediction_latest_id
+          - date
+          - leadtime
+          - sic_mean
+          - sic_stddev
         id_field: prediction_latest_id
         table: prediction_latest
         geom_field: geom_4326
