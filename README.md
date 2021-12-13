@@ -1,4 +1,5 @@
 # IceNetGeoAPI
+
 OGC-compatible API for exposing IceNet predictions.
 
 # Prerequisites
@@ -9,17 +10,34 @@ You will need to install the following in order to use this package:
 - [`Hashicorp Terraform`](https://www.terraform.io/)
 - `Python 3.9` (this is the latest version supported by `Azure Functions`)
 
+# Setup the Azure infrastructure
+
 ## Python
 
 Install `Python` requirements with the following:
 
 - `pip install --upgrade pip poetry`
-- `poetry install`
+- `poetry install` or
 
-# Setup the Terraform backend
+## Terraform
 
 - Run the `Terraform` setup script `./setup_terraform.py -v`
 - Enter the `terraform` directory with `cd terraform`
 - Initialise `Terraform` by running `terraform init -backend-config=backend.secrets`
 - Check the actions that `Terraform` will carry out by running `terraform plan -var-file=azure.secrets`
 - Deploy using `Terraform` by running `terraform apply -var-file=azure.secrets`
+
+# Run the example notebook
+
+## Python
+
+Install `Python` requirements with the following:
+
+- `pip install --upgrade pip poetry`
+- `poetry install --extras notebook`
+
+## Jupyter
+
+Go into the `examples` directory and run `jupyter notebook`.
+
+- `api-usage.ipynb` demonstrates how to use the API
