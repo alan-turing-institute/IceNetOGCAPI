@@ -7,15 +7,31 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+# Necessary dependencies
 azure-identity = "^1.6.0"
 azure-mgmt-resource = "^19.0.0"
 azure-mgmt-storage = "^18.0.0"
+chevron = "^0.14.0"
 coloredlogs = "^15.0.1"
 pyhcl = "^0.4.4"
-chevron = "^0.14.0"
 PyYAML = "^6.0"
+# Optional dependencies
+geopandas = { version = "^0.10.2", optional = true }
+jupyter = { version = "^1.0.0", optional = true }
+matplotlib = { version = "^3.5.1", optional = true }
+pygeos = { version = "^0.12.0", optional = true }
+Shapely = { version = "^1.8.0", optional = true }
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.extras]
+notebook = [
+    "geopandas",
+    "jupyter",
+    "matplotlib",
+    "pygeos",
+    "Shapely"
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

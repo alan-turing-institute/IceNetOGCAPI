@@ -30,4 +30,5 @@ if __name__ == "__main__":
 
     # Run server and exit when it does
     os.environ["PYGEOAPI_CONFIG"] = geoapi_config_name
+    os.environ["PYGEOAPI_OPENAPI"] = openapi_config_name
     sys.exit(cli(["serve"]))
