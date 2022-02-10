@@ -14,7 +14,7 @@ server:
         attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
 
 logging:
-    level: INFO  # the logging level (see https://docs.python.org/3/library/logging.html#logging-levels)
+    level: DEBUG  # the logging level (see https://docs.python.org/3/library/logging.html#logging-levels)
 
 metadata:
     identification:
