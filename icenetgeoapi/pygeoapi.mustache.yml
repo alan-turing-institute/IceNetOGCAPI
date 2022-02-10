@@ -1,7 +1,7 @@
 server:
     bind:
         host: 0.0.0.0  # listening address for incoming connections
-        port: {{port}}  # listening port for incoming connections
+        port: {{pygeoapi_input_port}}  # listening port for incoming connections
     url: https://{{app_url}} # url of server
     mimetype: application/json; charset=UTF-8  # default MIME type
     encoding: utf-8  # default server encoding

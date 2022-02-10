@@ -34,6 +34,6 @@ resource "azurerm_app_service" "app" {
   app_settings = {
     "SCM_DO_BUILD_DURING_DEPLOYMENT" = "1",
     "POST_BUILD_COMMAND"             = "post_build.sh",
-    "WEBSITES_PORT"                  = "8000",
+    "WEBSITES_PORT"                  = "${var.pygeoapi_input_port}",
   }
 }
