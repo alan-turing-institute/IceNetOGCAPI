@@ -119,10 +119,10 @@ resources:
         table: south_cell
         geom_field: geom_6932
 
-  north_forecasts:
+  north_forecasts_latest:
     type: collection
-    title: Northern hemisphere sea ice concentration forecasts
-    description: Northern hemisphere sea ice concentration forecasts
+    title: Most recent set of northern hemisphere sea ice concentration forecasts
+    description: Most recent set of northern hemisphere sea ice concentration forecasts
     keywords:
       - Earth Science > Climate Indicators > Cryospheric Indicators > Sea Ice
       - Earth Science > Cryosphere > Sea Ice > Sea Ice Concentration
@@ -162,10 +162,10 @@ resources:
         table: north_forecast_latest
         geom_field: geom_4326
 
-  south_forecasts:
+  south_forecasts_latest:
     type: collection
-    title: Southern hemisphere sea ice concentration forecasts
-    description: Southern hemisphere sea ice concentration forecasts
+    title: Most recent set of southern hemisphere sea ice concentration forecasts
+    description: Most recent set of southern hemisphere sea ice concentration forecasts
     keywords:
       - Earth Science > Climate Indicators > Cryospheric Indicators > Sea Ice
       - Earth Science > Cryosphere > Sea Ice > Sea Ice Concentration
