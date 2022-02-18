@@ -6,6 +6,13 @@ BASEPATH=$(python -c "import pygeoapi as pkg; print(pkg.__path__[0])")
 echo "Preparing to patch pygeoapi at ${BASEPATH}"
 cd "$BASEPATH" || (echo "Could not find path!"; exit 1)
 
+# Install IceNetViewProvider plugin
+echo "Installing IceNetViewProvider plugin"
+cp "$SCRIPT_DIR/icenet_views.py" "${BASEPATH}/provider/"
+EXISTING_PROVIDER="'PostgreSQL': 'pygeoapi.provider.postgresql.PostgreSQLProvider',"
+NEW_PROVIDER="'IceNetView': 'pygeoapi.provider.icenet_views.IceNetViewProvider',"
+sed -i "s|${EXISTING_PROVIDER}|${EXISTING_PROVIDER} ${NEW_PROVIDER}|g" "${BASEPATH}/plugin.py"
+
 # Apply patch from pygeoapi directory
 PATCH_PATH=$(ls "$SCRIPT_DIR/pygeoapi.patch" 2> /dev/null)
 if [ ! "$PATCH_PATH" ]; then

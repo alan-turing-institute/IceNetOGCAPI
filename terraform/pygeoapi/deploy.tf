@@ -8,11 +8,11 @@ resource "null_resource" "write_config" {
     command = <<EOF
     cd ../icenetgeoapi
     echo 'app_url: ${azurerm_app_service.app.default_site_hostname}' > pygeoapi.secrets
-    echo 'port: ${var.postgres_db_port}' >> pygeoapi.secrets
     echo 'postgres_dbname: ${var.postgres_db_name}' >> pygeoapi.secrets
     echo 'postgres_host: ${var.postgres_db_host}' >> pygeoapi.secrets
     echo 'postgres_reader_password: ${var.postgres_db_reader_password}' >> pygeoapi.secrets
     echo 'postgres_reader_username: ${var.postgres_db_reader_username}' >> pygeoapi.secrets
+    echo 'pygeoapi_input_port: ${var.pygeoapi_input_port}' >> pygeoapi.secrets
     python generate_config.py
     cd -
     EOF
