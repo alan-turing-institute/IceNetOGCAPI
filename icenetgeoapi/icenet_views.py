@@ -54,9 +54,9 @@ class IceNetViewProvider(PostgreSQLProvider):
             cursor = db.conn.cursor(cursor_factory=RealDictCursor)
 
             props = (
-                db.columns
-                if select_properties == []
-                else SQL(", ").join([Identifier(p) for p in select_properties])
+                SQL(", ").join([Identifier(p) for p in select_properties])
+                if select_properties
+                else db.columns
             )
 
             geom = (
@@ -70,7 +70,7 @@ class IceNetViewProvider(PostgreSQLProvider):
             )
 
             orderby = (
-                self._PostgreSQLProvider_make_orderby(sortby) if sortby else SQL("")
+                self._make_orderby(sortby) if sortby else SQL("")
             )
 
             limit_clause = SQL(f"LIMIT {limit}") if limit else SQL("")

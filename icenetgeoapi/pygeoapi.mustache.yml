@@ -153,12 +153,13 @@ resources:
           password: {{{postgres_reader_password}}}
           sslmode: require
         properties:
-          - forecast_latest_id
+          - forecast_id
           - date_forecast_generated
           - date_forecast_for
+          - cell_id
           - sea_ice_concentration_mean
           - sea_ice_concentration_stddev
-        id_field: forecast_latest_id
+        id_field: forecast_id
         table: north_forecast_latest
         geom_field: geom_4326
 
@@ -196,12 +197,13 @@ resources:
           password: {{{postgres_reader_password}}}
           sslmode: require
         properties:
-          - forecast_latest_id
+          - forecast_id
           - date_forecast_generated
           - date_forecast_for
+          - cell_id
           - sea_ice_concentration_mean
           - sea_ice_concentration_stddev
-        id_field: forecast_latest_id
+        id_field: forecast_id
         table: south_forecast_latest
         geom_field: geom_4326
 
@@ -244,6 +246,7 @@ resources:
           - forecast_id
           - date_forecast_generated
           - date_forecast_for
+          - cell_id
           - sea_ice_concentration_mean
           - sea_ice_concentration_stddev
         id_field: forecast_id
@@ -289,6 +292,7 @@ resources:
           - forecast_id
           - date_forecast_generated
           - date_forecast_for
+          - cell_id
           - sea_ice_concentration_mean
           - sea_ice_concentration_stddev
         id_field: forecast_id
