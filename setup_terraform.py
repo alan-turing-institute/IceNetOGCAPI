@@ -106,7 +106,7 @@ def main():
         postgres_db_name=args.postgres_db_name,
         postgres_db_host=args.postgres_db_host,
         postgres_db_reader_username=args.postgres_db_reader_username,
-        postgres_db_reader_password=args.postgres_db_reader_password
+        postgres_db_reader_password=args.postgres_db_reader_password,
     )
 
 
@@ -135,12 +135,7 @@ def get_azure_ids(credential, subscription_name):
     return (subscription_id, tenant_id)
 
 
-def write_terraform_configs(
-    subscription_id,
-    tenant_id,
-    storage_key,
-    **kwargs
-):
+def write_terraform_configs(subscription_id, tenant_id, storage_key, **kwargs):
     """Write Terraform config files"""
     # Backend secrets
     backend_secrets_path = os.path.join("terraform", "backend.secrets")
