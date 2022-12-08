@@ -22,16 +22,17 @@ def main():
         description="Initialise the Azure infrastructure needed by Terraform"
     )
     parser.add_argument(
+        "-s",
+        "--azure-subscription-name",
+        type=str,
+        default="IceNet",
+        help="Name of the Azure subscription being used.",
+    )
+    parser.add_argument(
         "--postgres-db-name",
         type=str,
         default="icenet",
         help="Name of the PostgreSQL database containing data.",
-    )
-    parser.add_argument(
-        "--postgres-db-port",
-        type=str,
-        default="8000",
-        help="Port used by the PostgreSQL database containing data.",
     )
     parser.add_argument(
         "--postgres-db-host",
@@ -40,23 +41,18 @@ def main():
         help="Hostname used by the PostgreSQL database containing data.",
     )
     parser.add_argument(
+        "-u",
         "--postgres-db-reader-username",
         type=str,
-        default="icenetadmin",
-        help="Username for an account with read access to the PostgreSQL database containing data.",
+        default="icenetreader",
+        help="Username for an account with read access to the PostgreSQL database containing data. Look in kv-icenetetl-secrets if unsure.",
     )
     parser.add_argument(
+        "-p",
         "--postgres-db-reader-password",
         type=str,
-        default="psql-icenetetl-database",
-        help="Password for an account with read access to the PostgreSQL database containing data.",
-    )
-    parser.add_argument(
-        "-s",
-        "--azure-subscription-name",
-        type=str,
-        default="IceNet",
-        help="Name of the Azure subscription being used.",
+        help="Password for an account with read access to the PostgreSQL database containing data. Look in kv-icenetetl-secrets if unsure.",
+        required=True,
     )
     parser.add_argument(
         "-v",
@@ -108,10 +104,9 @@ def main():
         tenant_id,
         storage_key,
         postgres_db_name=args.postgres_db_name,
-        postgres_db_port=args.postgres_db_port,
         postgres_db_host=args.postgres_db_host,
         postgres_db_reader_username=args.postgres_db_reader_username,
-        postgres_db_reader_password=args.postgres_db_reader_password
+        postgres_db_reader_password=args.postgres_db_reader_password,
     )
 
 
@@ -140,12 +135,7 @@ def get_azure_ids(credential, subscription_name):
     return (subscription_id, tenant_id)
 
 
-def write_terraform_configs(
-    subscription_id,
-    tenant_id,
-    storage_key,
-    **kwargs
-):
+def write_terraform_configs(subscription_id, tenant_id, storage_key, **kwargs):
     """Write Terraform config files"""
     # Backend secrets
     backend_secrets_path = os.path.join("terraform", "backend.secrets")

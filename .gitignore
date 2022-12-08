@@ -39,3 +39,7 @@ poetry.lock
 .ipynb_checkpoints/
 
 /venv/
+
+# Other local files
+.vscode
+.DS_Store

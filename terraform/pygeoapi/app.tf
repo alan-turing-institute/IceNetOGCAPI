@@ -28,12 +28,13 @@ resource "azurerm_app_service" "app" {
   resource_group_name = azurerm_resource_group.app.name
   app_service_plan_id = azurerm_app_service_plan.app.id
   site_config {
-    linux_fx_version = "Python|3.9"
+    always_on        = true
     app_command_line = "python run.py"
+    linux_fx_version = "Python|3.9"
   }
   app_settings = {
-    "SCM_DO_BUILD_DURING_DEPLOYMENT" = "1",
     "POST_BUILD_COMMAND"             = "post_build.sh",
-    "WEBSITES_PORT"                  = "8000",
+    "SCM_DO_BUILD_DURING_DEPLOYMENT" = "1",
+    "WEBSITES_PORT"                  = "${var.pygeoapi_input_port}",
   }
 }
