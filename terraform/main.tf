@@ -6,4 +6,7 @@ module "pygeoapi" {
   postgres_db_reader_username = var.postgres_db_reader_username
   postgres_db_reader_password = var.postgres_db_reader_password
   pygeoapi_input_port         = "8000"
+  default_tags                = local.tags
+  project_name                = local.project_name
+  location                    = var.location
 }

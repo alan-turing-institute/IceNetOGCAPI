@@ -1,8 +1,3 @@
-# Load common module
-module "common" {
-  source = "../common"
-}
-
 variable "postgres_db_name" {
   description = "Name of the PostgreSQL database containing data"
   type        = string
@@ -25,6 +20,19 @@ variable "pygeoapi_input_port" {
   description = "Port where PyGeoAPI listens for incoming connections."
   type        = string
 }
+variable "project_name" {
+    description = "Project name for resource naming"
+    type    = string
+}
+variable "location" {
+  description = "Which Azure location to build in"
+  default     = "uksouth"
+}
+variable "default_tags" {
+    description = "Default tags for resources"
+    type    = map(string)
+    default = {}
+}
 
 # Local variables
 locals {
@@ -32,7 +40,7 @@ locals {
     {
       "module" = "pygeoapi"
     },
-    module.common.tags,
+    var.default_tags,
   )
   # https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
   # Basic B1: 1 core, 1.75 GB memory £51.48/month

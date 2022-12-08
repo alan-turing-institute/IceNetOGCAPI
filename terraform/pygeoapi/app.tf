@@ -1,15 +1,15 @@
 # Create the resource group
 resource "azurerm_resource_group" "app" {
-  name     = "rg-${module.common.project_name}-pygeoapi"
-  location = module.common.location
+  name     = "rg-${var.project_name}-pygeoapi"
+  location = var.location
   tags     = local.tags
 }
 
 # Service plan that functions belong to
 resource "azurerm_app_service_plan" "app" {
-  name                = "plan-${module.common.project_name}-pygeoapi"
+  name                = "plan-${var.project_name}-pygeoapi"
   resource_group_name = azurerm_resource_group.app.name
-  location            = module.common.location
+  location            = var.location
   kind                = "Linux"
   reserved            = true
   sku {
@@ -23,8 +23,8 @@ resource "azurerm_app_service_plan" "app" {
 }
 
 resource "azurerm_app_service" "app" {
-  name                = "app-${module.common.project_name}-pygeoapi"
-  location            = module.common.location
+  name                = "app-${var.project_name}-pygeoapi"
+  location            = var.location
   resource_group_name = azurerm_resource_group.app.name
   app_service_plan_id = azurerm_app_service_plan.app.id
   site_config {

@@ -55,6 +55,28 @@ def main():
         required=True,
     )
     parser.add_argument(
+        "-rg",
+        "--azure-resource-group-name",
+        type=str,
+        default="rg-icenetetl-terraform",
+        help="Name of the Azure resource group",
+    )
+   
+    parser.add_argument(
+        "-sa",
+        "--azure-storage-account-name",
+        type=str,
+        default="sticenetetlterraform",
+        help="Name of the Azure storage account",
+    )
+    parser.add_argument(
+        "-sc",
+        "--azure-storage-container-name",
+        type=str,
+        default="blob-icenetetl-terraform",
+        help="Name of the Azure storage container",
+    )
+    parser.add_argument(
         "-v",
         "--verbose",
         action="count",
@@ -73,13 +95,9 @@ def main():
         "project": "IceNet",
         "component": "GeoAPI",
     }
-    # Load variables from backend.tf
-    with open(os.path.join("terraform", "backend.tf"), "r") as f_in:
-        config = hcl.load(f_in)
-    az_config = config["terraform"]["backend"]["azurerm"]
-    resource_group_name = az_config["resource_group_name"]
-    storage_account_name = az_config["storage_account_name"]
-    storage_container_name = az_config["container_name"]
+    resource_group_name = args.azure_resource_group_name
+    storage_account_name = args.azure_storage_account_name
+    storage_container_name = args.azure_storage_container_name
 
     # Get a common Azure information
     credential = InteractiveBrowserCredential()
