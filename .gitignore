@@ -38,7 +38,7 @@ poetry.lock
 # Jupyter notebook local files
 .ipynb_checkpoints/
 
-/venv/
+/venv
 
 # Other local files
 .vscode
