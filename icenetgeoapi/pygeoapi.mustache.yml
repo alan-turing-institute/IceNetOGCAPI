@@ -39,17 +39,17 @@ metadata:
         name: British Antarctic Survey & The Alan Turing Institute
         url: https://pygeoapi.io
     contact:  # service contact details
-        name: Robinson, James
-        position: Senior Research Software Engineer
-        address: 96 Euston Road
-        city: London
-        postalcode: NW1 2DB
+        name: Byrne, James
+        position: Research Software Engineer
+        address: Madingley Road
+        city: Cambridge
+        postalcode: CB3 0ET
         country: United Kingdom
-        phone: +44 (0)20 3862 3352
-        email: jrobinson@turing.ac.uk
-        url: https://www.turing.ac.uk
+        phone: +44 (0)1223 221 400
+        email: jambyr@bas.ac.uk 
+        url: https://github.com/icenet-ai
         hours: Mo-Fr 09:00-17:00
-        instructions: During hours of service. Off on weekends.
+        instructions: N/A
         role: pointOfContact
 
 resources:
