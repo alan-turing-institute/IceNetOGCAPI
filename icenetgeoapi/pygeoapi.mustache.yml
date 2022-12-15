@@ -77,7 +77,7 @@ resources:
       - type: feature
         name: PostgreSQL
         data:
-          host: {{postgres_host}}.postgres.database.azure.com
+          host: {{postgres_host}}
           dbname: {{postgres_dbname}}
           user: {{postgres_reader_username}}@{{postgres_host}}
           password: {{{postgres_reader_password}}}
@@ -110,7 +110,7 @@ resources:
       - type: feature
         name: PostgreSQL
         data:
-          host: {{postgres_host}}.postgres.database.azure.com
+          host: {{postgres_host}}
           dbname: {{postgres_dbname}}
           user: {{postgres_reader_username}}@{{postgres_host}}
           password: {{{postgres_reader_password}}}
@@ -147,7 +147,7 @@ resources:
       - type: feature
         name: PostgreSQL
         data:
-          host: {{postgres_host}}.postgres.database.azure.com
+          host: {{postgres_host}}
           dbname: {{postgres_dbname}}
           user: {{postgres_reader_username}}@{{postgres_host}}
           password: {{{postgres_reader_password}}}
@@ -191,7 +191,7 @@ resources:
       - type: feature
         name: PostgreSQL
         data:
-          host: {{postgres_host}}.postgres.database.azure.com
+          host: {{postgres_host}}
           dbname: {{postgres_dbname}}
           user: {{postgres_reader_username}}@{{postgres_host}}
           password: {{{postgres_reader_password}}}
@@ -235,7 +235,7 @@ resources:
       - type: feature
         name: IceNetView
         data:
-          host: {{postgres_host}}.postgres.database.azure.com
+          host: {{postgres_host}}
           dbname: {{postgres_dbname}}
           user: {{postgres_reader_username}}@{{postgres_host}}
           password: {{{postgres_reader_password}}}
@@ -281,7 +281,7 @@ resources:
       - type: feature
         name: IceNetView
         data:
-          host: {{postgres_host}}.postgres.database.azure.com
+          host: {{postgres_host}}
           dbname: {{postgres_dbname}}
           user: {{postgres_reader_username}}@{{postgres_host}}
           password: {{{postgres_reader_password}}}
