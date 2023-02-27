@@ -22,6 +22,12 @@ def main():
         description="Initialise the Azure infrastructure needed by Terraform"
     )
     parser.add_argument(
+        "-e",
+        "--environment",
+        default="dev",
+        help="Environment name to create, will be used to identify ALL resources (make it short)"
+    )
+    parser.add_argument(
         "-s",
         "--azure-subscription-name",
         type=str,
@@ -121,6 +127,7 @@ def main():
         subscription_id,
         tenant_id,
         storage_key,
+        args.environment,
         postgres_db_name=args.postgres_db_name,
         postgres_db_host=args.postgres_db_host,
         postgres_db_reader_username=args.postgres_db_reader_username,
@@ -153,7 +160,7 @@ def get_azure_ids(credential, subscription_name):
     return (subscription_id, tenant_id)
 
 
-def write_terraform_configs(subscription_id, tenant_id, storage_key, **kwargs):
+def write_terraform_configs(subscription_id, tenant_id, storage_key, environment, **kwargs):
     """Write Terraform config files"""
     # Backend secrets
     backend_secrets_path = os.path.join("terraform", "backend.secrets")
@@ -171,6 +178,7 @@ def write_terraform_configs(subscription_id, tenant_id, storage_key, **kwargs):
     azure_vars = {
         "subscription_id": subscription_id,
         "tenant_id": tenant_id,
+        "environment": environment,
     }
     azure_vars.update(kwargs)
     with open(azure_secrets_path, "w") as f_out:
