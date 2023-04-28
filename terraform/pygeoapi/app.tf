@@ -31,6 +31,7 @@ resource "azurerm_app_service" "app" {
     always_on        = true
     app_command_line = "python run.py"
     linux_fx_version = "Python|3.9"
+    virtual_network_subnet_id  = var.subnet
   }
   app_settings = {
     "POST_BUILD_COMMAND"             = "post_build.sh",

@@ -9,4 +9,5 @@ module "pygeoapi" {
   default_tags                = local.tags
   project_name                = local.project_name
   location                    = var.location
+  subnet                      = var.private_subnet
 }

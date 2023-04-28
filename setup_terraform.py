@@ -67,7 +67,7 @@ def main():
         default="rg-icenetetl-terraform",
         help="Name of the Azure resource group",
     )
-   
+
     parser.add_argument(
         "-sa",
         "--azure-storage-account-name",
@@ -88,6 +88,10 @@ def main():
         action="count",
         default=0,
         help="Verbosity level: each '-v' will increase logging level by one step (default is WARNING).",
+    )
+    parser.add_argument(
+        "private_subnet_id",
+        help="Supply the private subnet ID",
     )
 
     # Configure logging, increasing verbosity by one level for each 'v'
@@ -132,6 +136,7 @@ def main():
         postgres_db_host=args.postgres_db_host,
         postgres_db_reader_username=args.postgres_db_reader_username,
         postgres_db_reader_password=args.postgres_db_reader_password,
+        private_subnet=args.private_subnet_id,
     )
 
 

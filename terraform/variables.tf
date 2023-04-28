@@ -37,6 +37,10 @@ variable "location" {
   description = "Which Azure location to build in"
   default     = "uksouth"
 }
+variable "private_subnet" {
+    description = "Private subnet to deploy in"
+    type = "string"
+}
 # Local variables
 locals {
   database_names = ["icenet"]
@@ -47,4 +51,3 @@ locals {
     "component" : "GeoAPI"
   }
 }
-
