@@ -1,32 +1,15 @@
 # IceNetGeoAPI
 
 OGC-compatible API for exposing IceNet predictions.
-This is part of the [IceNet project](https://github.com/alan-turing-institute/IceNet-Project).
+This is part of the [IceNet project](https://icenet.ai).
 
-## Prerequisites
+## Azure
 
-You will need to install the following in order to use this package:
+This requires the [icenet ETL infrastructure](https://github.com/icenet-ai/icenet-etl) to be insantiated.
 
-- A [`Microsoft Azure`](https://portal.azure.com) account with at least `Contributor` permissions on the `IceNet` subscription
-- [`Hashicorp Terraform`](https://www.terraform.io/)
-- `Python 3.9` (this is the latest version supported by `Azure Functions`)
+The icenetgeoapi folder contains the installable webapp that can be deployed to this platform.
 
-## Setup the Azure infrastructure
-
-### Python
-
-Install `Python` requirements with the following:
-
-- `pip install --upgrade pip poetry`
-- `poetry install` or
-
-### Setup the Terraform backend
-
-- Run the `Terraform` setup script `./setup_terraform.py -v`
-- Enter the `terraform` directory with `cd terraform`
-- Initialise `Terraform` by running `terraform init -backend-config=backend.secrets`
-- Check the actions that `Terraform` will carry out by running `terraform plan -var-file=azure.secrets`
-- Deploy using `Terraform` by running `terraform apply -var-file=azure.secrets`
+More details TBC
 
 ## Run the example notebooks
 
@@ -34,8 +17,7 @@ Install `Python` requirements with the following:
 
 Install `Python` requirements with the following:
 
-- `pip install --upgrade pip poetry`
-- `poetry install --extras notebook`
+- `pip install -r examples/requirements.txt`
 
 ### Jupyter
 
